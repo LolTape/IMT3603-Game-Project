@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Editor / OS noise
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Exported builds
+build/
+export/
+*.exe
+*.pck
