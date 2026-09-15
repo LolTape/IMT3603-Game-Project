@@ -1,3 +1,3 @@
 # IMT3603-Game-Project
 
-Contributers: Christian Henriksen, Lucas Kloos
+Contributers: Christian DAmmen, Christian Henriksen, Lucas Kloos
