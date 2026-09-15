@@ -63,7 +63,7 @@ No selfmade music
 | Companions | Could | | |
 
 
-## 2. Gameplay & Mechanics — owner: unassigned
+## 2. Gameplay & Mechanics — owner: Lucas Kloos
 | Verb | Input | Timing / numbers | Notes | 
 | Move | WASD | ??? | |
 | Jump | Space | ??? | |
@@ -104,14 +104,14 @@ No selfmade music
 
 ---
 
-# 3. Screen Flow & Game States — owner: @name
+# 3. Screen Flow & Game States — owner: @Ifeoluwa Oyetoyan
 
 > A diagram of every screen and state (title, settings, pause, gameplay, game over…), the transitions between them, and
 > one line on each screen's purpose. This diagram is usually the first thing the programmer builds.
 
 ---
 
-# 4. Story, Setting & Characters — owner: @name
+# 4. Story, Setting & Characters — owner: @Christian Dammen
 
 > Skip or minimise if your game is abstract — say so explicitly rather than leaving the section blank.
 
@@ -131,7 +131,7 @@ No selfmade music
 
 ---
 
-# 5. Levels & Content Plan — owner: @name
+# 5. Levels & Content Plan — owner: @Christian Dammen, Christian Henriksen
 
 > Per level: synopsis, objectives, how required knowledge is introduced, map sketch, critical path, key encounters.
 > **Count the content**: levels × unique assets × mechanics introduced. This section is where scope hides.
@@ -148,7 +148,7 @@ No selfmade music
 
 ---
 
-# 6. Interface — owner: @name
+# 6. Interface — owner: @Ida Lovaas
 
 ## 6.1 Visual / HUD
 
@@ -164,7 +164,7 @@ No selfmade music
 
 ---
 
-# 7. Controls & Accessibility — owner: @name
+# 7. Controls & Accessibility — owner: @Andreas Castro Messel
 
 > Modern GDDs treat accessibility as design-time, not patch-time — it is far cheaper to build in than to retrofit, and
 > in the EU/EEA the **European Accessibility Act** (applicable since June 2025) has pushed accessibility from
@@ -182,7 +182,7 @@ No selfmade music
 
 ---
 
-# 8. Artificial Intelligence — owner: @name
+# 8. Artificial Intelligence — owner: @Lucas Kloos, Christian Henriksen
 
 ## 8.1 Opponent / enemy AI
 
@@ -205,7 +205,7 @@ No selfmade music
 
 ---
 
-# 9. Art Direction — owner: @name
+# 9. Art Direction — owner: @Ida Lovaas
 
 > Style, palette, shape language, reference board (link). Key assets and how each is being made — modelled, bought,
 > or generated, **with provenance** (see sec.12.2). Constraints that protect scope: camera distance, texture budget,
@@ -213,7 +213,7 @@ No selfmade music
 
 ---
 
-# 10. Technical — owner: @name
+# 10. Technical — owner: @Chirstian Henriksen, Ifeoluwa Oyetoyan
 
 > Target hardware and minimum spec (include Steam Deck / handheld if relevant — it is the most common "low spec" target
 > now). Engine and version, **pinned** (e.g. Godot 4.7.1, Unreal 5.8, Unity 6.3 LTS). Development toolchain. Data
@@ -222,7 +222,7 @@ No selfmade music
 
 ---
 
-# 11. Playtesting Plan — owner: @name
+# 11. Playtesting Plan — owner: @Christian Dammen
 
 > A GDD without a playtesting plan is a hypothesis without an experiment. See [play_test.md](play_test.md) for the
 > assessed task and [../lectures/Playtesting.md](../lectures/notes/Playtesting.md) for method.
@@ -240,7 +240,7 @@ No selfmade music
 
 ---
 
-# 12. Production Notes — owner: @name
+# 12. Production Notes — owner: @Andreas Castro Messel
 
 ## 12.1 Cultural material
 
@@ -277,7 +277,7 @@ No selfmade music
 
 ---
 
-# 13. Competence Evidence — owner: each of you
+# 13. Competence Evidence — owner: everyone
 
 > New for 2026, and the one section that is about *you* rather than the game.
 >
