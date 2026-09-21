@@ -46,18 +46,18 @@ No selfmade music
 | Feature | Priority | Owner | Status |
 |---|---|---|---|
 | Run Upgrades | Must | Vertical slice (wk ) | |
-| Movement | Must | | |
-| Enemies | Must | | |
+| Character Movement| Must | Lucas Kloos & Andreas Castro Messel | |
+| Enemies | Must | Christian Henriksen | |
 | Rooms | Must | | |
-| UI | Must | | | 
+| UI | Must | Ife Oyetoyan | | 
 | UX | Must | | | 
-| Weapon(s) | Must | | |
+| Weapon(s) | Must | Christian Dammen | |
+| (partly) selfmade sprites | Should | Ida Celine Løvås | |
 | Permanent Upgrades | Should | | | 
 | Heavier art design | Should | | |
 | Weapon Attack design | Should | | |
 | God items | Should | | |
 | Randomly generated sets of level | Could | | |
-| selfmade sprites | Could | | |
 | weapon altering item synergies | Could | | |
 | Character customization | Could | | |
 | Companions | Could | | |
