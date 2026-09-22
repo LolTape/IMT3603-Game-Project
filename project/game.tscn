@@ -7,7 +7,6 @@
 distance = 3.0
 
 [node name="Game" type="Node2D" unique_id=1185205600]
-position = Vector2(2, 3)
 
 [node name="basicPlatform3" parent="." unique_id=384453180 instance=ExtResource("1_e2o6t")]
 position = Vector2(486, 855)
