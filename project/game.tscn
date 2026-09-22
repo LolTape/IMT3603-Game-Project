@@ -20,6 +20,9 @@ position = Vector2(401, 338)
 [node name="character" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
 position = Vector2(875, 506)
 slide_on_ceiling = false
+jump_height = 20000.0
+jump_time_to_peak = 20.0
+jump_time_to_descent = 15.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1391495661]
 
