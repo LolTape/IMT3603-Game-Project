@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://ve6rao6nhatl"]
 
-[ext_resource type="PackedScene" uid="uid://d1u8u34sb10j7" path="res://entities/character/character.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://d1u8u34sb10j7" path="res://entities/character/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://ba0gop8bb2388" path="res://basicPlatform.tscn" id="1_e2o6t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
 distance = 3.0
 
 [node name="Game" type="Node2D" unique_id=1185205600]
+position = Vector2(-94, -1056)
 
 [node name="basicPlatform3" parent="." unique_id=384453180 instance=ExtResource("1_e2o6t")]
 position = Vector2(486, 855)
@@ -17,7 +18,7 @@ position = Vector2(1422, 619)
 [node name="basicPlatform" parent="." unique_id=1482385218 instance=ExtResource("1_e2o6t")]
 position = Vector2(401, 338)
 
-[node name="character" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
+[node name="player" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
 position = Vector2(875, 506)
 slide_on_ceiling = false
 speed = 1400
@@ -25,6 +26,9 @@ jump_height = 350.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.25
 fall_speed = 3000.0
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
+position = Vector2(-10, 8)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1391495661]
 
