@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+# Movement variables
 @export var speed = 1500
 
 @export var jump_height : float
@@ -10,6 +12,11 @@ extends CharacterBody2D
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+
+
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
