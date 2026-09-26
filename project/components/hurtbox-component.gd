@@ -14,5 +14,5 @@ extends Area2D
 ##
 ## [param attack_damage] The amount of damage to apply.
 func take_hit(attack: float) -> void:
-    if health_component:
-        health_component.damage(attack)
+	if health_component:
+		health_component.damage(attack)

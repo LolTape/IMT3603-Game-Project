@@ -10,7 +10,7 @@ extends Area2D
 ## When another Area2D enters this hitbox, [method _on_area_entered]
 ## is called to determine whether the area is a [HurtboxComponent].
 func _ready() -> void: 
-    area_entered.connect(_on_area_entered)
+	area_entered.connect(_on_area_entered)
 
 
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 ##
 ## [param area] The Area2D that entered the hitbox.
 func _on_area_entered(area):
-    # Tells the hurtbox to apply this hit's damage
-    # to its associated HealthComponent.
-    if area is HurtboxComponent:
-        area.take_hit(attack_damage)
+	# Tells the hurtbox to apply this hit's damage
+	# to its associated HealthComponent.
+	if area is HurtboxComponent:
+		area.take_hit(attack_damage)
