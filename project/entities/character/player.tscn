@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox-component.gd" id="3_hmpou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
-size = Vector2(128, 128)
+size = Vector2(19, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
 size = Vector2(76, 112)
@@ -20,10 +20,10 @@ fall_speed = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=750564455]
 texture_filter = 1
-scale = Vector2(4, 4)
 texture = ExtResource("2_6i0tm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=921314063]
+position = Vector2(-1.5, 2)
 shape = SubResource("RectangleShape2D_e2o6t")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1440161371]
