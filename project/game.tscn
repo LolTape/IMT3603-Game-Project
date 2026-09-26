@@ -1,8 +1,31 @@
 [gd_scene format=3 uid="uid://ve6rao6nhatl"]
 
-[ext_resource type="Script" uid="uid://becf38oi8yhig" path="res://sprite_2d.gd" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://d1u8u34sb10j7" path="res://entities/character/player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://ba0gop8bb2388" path="res://basicPlatform.tscn" id="1_e2o6t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
+distance = 3.0
 
 [node name="Game" type="Node2D" unique_id=1185205600]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1707160389]
-script = ExtResource("1_80nbo")
+[node name="basicPlatform3" parent="." unique_id=384453180 instance=ExtResource("1_e2o6t")]
+position = Vector2(486, 855)
+
+[node name="basicPlatform2" parent="." unique_id=1447499619 instance=ExtResource("1_e2o6t")]
+position = Vector2(1422, 619)
+
+[node name="basicPlatform" parent="." unique_id=1482385218 instance=ExtResource("1_e2o6t")]
+position = Vector2(401, 338)
+
+[node name="player" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
+position = Vector2(875, 506)
+slide_on_ceiling = false
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
+position = Vector2(-10, 8)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1391495661]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1105412403]
+position = Vector2(923, 1078)
+shape = SubResource("WorldBoundaryShape2D_gkdic")
