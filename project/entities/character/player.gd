@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 
+# Gets health and is needed for death behaviour.
+@onready var health: HealthComponent = $HealthComponent
+
 # Movement variables
 @export var speed = 1500
 
@@ -18,9 +21,11 @@ extends CharacterBody2D
 
 
 
-# Called when the node enters the scene tree for the first time.
+## Called when the node enters the scene tree for the first time.
+## Connects the health component's death signal to the player's death behaviour.
 func _ready() -> void:
-	pass # Replace with function body.
+	health.died.connect(_on_died)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,3 +56,8 @@ func _physics_process(delta: float):
 	# velocity.y = clamp(velocity.y, INT64_MIN, fall_speed)
 	move_and_slide()
 	
+## Stops the player's physics processing and removes the player
+## from the scene when their health reaches zero.
+func _on_died() -> void:
+	set_physics_process(false)
+	queue_free()
