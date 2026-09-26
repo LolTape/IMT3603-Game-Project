@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ci7t6dj8htjot"]
+
+[ext_resource type="Script" uid="uid://d7jloq1pk2nt" path="res://entities/enemies/wolf.gd" id="1_bychn"]
+[ext_resource type="Texture2D" uid="uid://dkvsln8scg5ep" path="res://assets/sprites/Wolf_Placeholder.png" id="1_mhnpo"]
+[ext_resource type="Script" uid="uid://go64xmw3tbop" path="res://components/health_component.gd" id="2_hp7qb"]
+[ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox-component.gd" id="3_bychn"]
+[ext_resource type="Script" uid="uid://bebbiqbxsmp3h" path="res://components/hitbox_component.gd" id="4_l24s3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
+size = Vector2(222, 310)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mwmh"]
+size = Vector2(224, 307)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjwaw"]
+size = Vector2(219, 303)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1752258715]
+collision_mask = 0
+script = ExtResource("1_bychn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1680002173]
+position = Vector2(-0.5, -1)
+scale = Vector2(0.25055188, 0.26206896)
+texture = ExtResource("1_mhnpo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909759327]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_4hwu2")
+disabled = true
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1060687916]
+script = ExtResource("2_hp7qb")
+metadata/_custom_type_script = "uid://go64xmw3tbop"
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1914460565 node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_bychn")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://ckghf7s2cwfre"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=454187236]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_0mwmh")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=5579178]
+script = ExtResource("4_l24s3")
+metadata/_custom_type_script = "uid://bebbiqbxsmp3h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=673649240]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_gjwaw")
