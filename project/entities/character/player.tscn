@@ -11,7 +11,7 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
 size = Vector2(76, 112)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 groups=["player"]]
 script = ExtResource("1_pjt0s")
 jump_height = 100.0
 jump_time_to_peak = 0.4

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1u8u34sb10j7" path="res://entities/character/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://ba0gop8bb2388" path="res://basicPlatform.tscn" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://ci7t6dj8htjot" path="res://entities/enemies/Wolf.tscn" id="3_feb5d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
 distance = 3.0
@@ -20,6 +21,7 @@ position = Vector2(401, 338)
 [node name="player" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
 position = Vector2(875, 506)
 slide_on_ceiling = false
+jump_height = 500.0
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
 position = Vector2(-10, 8)
@@ -29,3 +31,6 @@ position = Vector2(-10, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1105412403]
 position = Vector2(923, 1078)
 shape = SubResource("WorldBoundaryShape2D_gkdic")
+
+[node name="Wolf" parent="." unique_id=1752258715 instance=ExtResource("3_feb5d")]
+position = Vector2(-553, -213)
