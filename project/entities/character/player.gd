@@ -49,6 +49,5 @@ func _physics_process(delta: float):
 
 	velocity.y += gravity() * delta
 	# velocity.y = clamp(velocity.y, INT64_MIN, fall_speed)
-
 	move_and_slide()
 	

@@ -7,7 +7,6 @@
 distance = 3.0
 
 [node name="Game" type="Node2D" unique_id=1185205600]
-position = Vector2(-94, -1056)
 
 [node name="basicPlatform3" parent="." unique_id=384453180 instance=ExtResource("1_e2o6t")]
 position = Vector2(486, 855)
@@ -21,11 +20,6 @@ position = Vector2(401, 338)
 [node name="player" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
 position = Vector2(875, 506)
 slide_on_ceiling = false
-speed = 1400
-jump_height = 350.0
-jump_time_to_peak = 0.4
-jump_time_to_descent = 0.25
-fall_speed = 3000.0
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
 position = Vector2(-10, 8)

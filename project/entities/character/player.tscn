@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1u8u34sb10j7"]
 
 [ext_resource type="Script" uid="uid://go64xmw3tbop" path="res://components/health_component.gd" id="1_3hqro"]
+[ext_resource type="Script" uid="uid://tuac4xi0x0d2" path="res://entities/character/player.gd" id="1_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://bgxhos7bb5tj0" path="res://assets/sprites/character.png" id="2_6i0tm"]
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox-component.gd" id="3_hmpou"]
 
@@ -11,7 +12,11 @@ size = Vector2(128, 128)
 size = Vector2(76, 112)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982]
-script = ExtResource("1_3hqro")
+script = ExtResource("1_pjt0s")
+jump_height = 100.0
+jump_time_to_peak = 0.4
+jump_time_to_descent = 0.4
+fall_speed = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=750564455]
 texture_filter = 1
