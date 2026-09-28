@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://tuac4xi0x0d2" path="res://entities/character/player.gd" id="1_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://bgxhos7bb5tj0" path="res://assets/sprites/character.png" id="2_6i0tm"]
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox-component.gd" id="3_hmpou"]
+[ext_resource type="AudioStream" uid="uid://cfsjv1kdc3cet" path="res://assets/sound/Alpha_wolf_meme.mp3" id="5_3ekpe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
 size = Vector2(19, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
-size = Vector2(76, 112)
+size = Vector2(19, 28)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 groups=["player"]]
 script = ExtResource("1_pjt0s")
@@ -36,5 +37,8 @@ health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://ckghf7s2cwfre"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1760243906]
-position = Vector2(-6, 8)
+position = Vector2(-1.5, 2)
 shape = SubResource("RectangleShape2D_4hwu2")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=911626479]
+stream = ExtResource("5_3ekpe")
