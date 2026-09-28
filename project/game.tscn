@@ -194,6 +194,7 @@ texture = ExtResource("5_hve3p")
 [node name="player" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
 position = Vector2(32, -100)
 slide_on_ceiling = false
+max_health = 20.0
 speed = 500
 jump_height = 116.0
 

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var max_health: float = 100.0
+
 
 # Gets health and is needed for death behaviour.
 @onready var health: HealthComponent = $HealthComponent
@@ -28,8 +30,9 @@ extends CharacterBody2D
 ## Called when the node enters the scene tree for the first time.
 ## Connects the health component's death signal to the player's death behaviour.
 func _ready() -> void:
+	health.max_health = max_health
+	health.current_health = max_health
 	health.died.connect(_on_died)
-
 
 
 
