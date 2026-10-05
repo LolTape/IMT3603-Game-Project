@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d7jloq1pk2nt" path="res://entities/enemies/wolf.gd" id="1_bychn"]
 [ext_resource type="Texture2D" uid="uid://dkvsln8scg5ep" path="res://assets/sprites/Wolf_Placeholder.png" id="1_mhnpo"]
 [ext_resource type="Script" uid="uid://go64xmw3tbop" path="res://components/health_component.gd" id="2_hp7qb"]
-[ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox-component.gd" id="3_bychn"]
+[ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox_component.gd" id="3_bychn"]
 [ext_resource type="Script" uid="uid://bebbiqbxsmp3h" path="res://components/hitbox_component.gd" id="4_l24s3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
