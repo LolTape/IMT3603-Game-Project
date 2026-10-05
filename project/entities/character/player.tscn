@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://go64xmw3tbop" path="res://components/health_component.gd" id="1_3hqro"]
 [ext_resource type="Script" uid="uid://tuac4xi0x0d2" path="res://entities/character/player.gd" id="1_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://bgxhos7bb5tj0" path="res://assets/sprites/character.png" id="2_6i0tm"]
-[ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox-component.gd" id="3_hmpou"]
+[ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox_component.gd" id="3_hmpou"]
 [ext_resource type="AudioStream" uid="uid://cfsjv1kdc3cet" path="res://assets/sound/Alpha_wolf_meme.mp3" id="5_3ekpe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
@@ -14,12 +14,14 @@ size = Vector2(19, 28)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 groups=["player"]]
 script = ExtResource("1_pjt0s")
-speed = 1.0
-time_to_top_speed = 0.05
+speed = 200.0
+time_to_top_speed = 0.1
+dash_speed = 800.0
+dash_cooldown = 1.0
+dash_i_time = 0.5
 jump_height = 100.0
-jump_time_to_peak = 0.4
-jump_time_to_descent = 0.4
-fall_speed = 1000.0
+jump_time_to_peak = 0.6
+jump_time_to_descent = 0.6
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=750564455]
 texture_filter = 1
@@ -44,3 +46,5 @@ shape = SubResource("RectangleShape2D_4hwu2")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=911626479]
 stream = ExtResource("5_3ekpe")
+
+[connection signal="dash_invincibiliy_time" from="." to="HurtboxComponent" method="_set_invincibiliy_time"]
