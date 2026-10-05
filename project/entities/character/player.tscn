@@ -14,6 +14,8 @@ size = Vector2(19, 28)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 groups=["player"]]
 script = ExtResource("1_pjt0s")
+speed = 1.0
+time_to_top_speed = 0.05
 jump_height = 100.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.4

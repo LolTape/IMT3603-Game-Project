@@ -11,12 +11,12 @@ extends CharacterBody2D
 
 
 # Movement variables
-@export var speed = 1500
+@export var speed : float = 10000
+@export var time_to_top_speed : float
 
 @export var jump_height : float
 @export var jump_time_to_peak : float
 @export var jump_time_to_descent : float
-@export var fall_speed : float
 
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
@@ -53,15 +53,15 @@ func _physics_process(delta: float):
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
-	if !Input.is_action_pressed("jump") and !is_on_floor():
-		velocity.y += fall_gravity * delta
+	if !Input.is_action_pressed("jump") and !is_on_floor(): # go down faster if jump is released
+		velocity.y += gravity() * delta
 
 	var direction = Input.get_axis("left", "right")
 	var target_velocity = direction * speed
-	velocity.x = move_toward(velocity.x, target_velocity, speed/5.0)
+	var acceleration = (speed * delta) / time_to_top_speed 
+	velocity.x = move_toward(velocity.x, target_velocity, acceleration)
 
 	velocity.y += gravity() * delta
-	# velocity.y = clamp(velocity.y, INT64_MIN, fall_speed)
 	move_and_slide()
 	
 ## Stops the player's physics processing and removes the player
