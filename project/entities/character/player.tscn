@@ -12,7 +12,7 @@ size = Vector2(19, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
 size = Vector2(19, 28)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 node_paths=PackedStringArray("sprite") groups=["player"]]
 script = ExtResource("1_pjt0s")
 speed = 200.0
 time_to_top_speed = 0.1
@@ -22,6 +22,7 @@ dash_i_time = 0.5
 jump_height = 100.0
 jump_time_to_peak = 0.6
 jump_time_to_descent = 0.6
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=750564455]
 texture_filter = 1
@@ -46,5 +47,7 @@ shape = SubResource("RectangleShape2D_4hwu2")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=911626479]
 stream = ExtResource("5_3ekpe")
+volume_db = 36.0
+pitch_scale = 1.6
 
 [connection signal="dash_invincibiliy_time" from="." to="HurtboxComponent" method="_set_invincibiliy_time"]
