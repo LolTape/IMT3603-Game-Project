@@ -26,7 +26,11 @@ extends CharacterBody2D
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
+@export var sprite : Sprite2D
+
 var dash_cd = 0
+## input horizontal direction
+var input_h_dir : float 
 
 signal dash_invincibiliy_time(i_time: float) # give i_frames in seconds
 
@@ -41,12 +45,12 @@ func jump():
 	if is_on_floor():
 		velocity.y += jump_velocity
 
-func dash(direction: Vector2) -> void: 
+func dash(dash_dir: Vector2) -> void: 
 	if dash_cd: # if still on cooldown, don't dash
 		return
 
 	dash_cd = dash_cooldown
-	velocity += direction * dash_speed
+	velocity += dash_dir * dash_speed
 	dash_invincibiliy_time.emit(dash_i_time)
 	
 func gravity() -> float:
@@ -59,19 +63,21 @@ func gravity() -> float:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	dash_cd = max(dash_cd - delta, 0.0)
+	if input_h_dir != 0:
+		sprite.flip_h = input_h_dir != 1
+
 
 func _physics_process(delta: float):
+	input_h_dir = Input.get_axis("left", "right")
 
 	if Input.is_action_just_pressed("jump"):
 		jump()
 
-	var direction = Input.get_axis("left", "right")
-
 	if Input.is_action_just_pressed("dash"):
-		dash(Vector2(direction, 0))
+		dash(Vector2(input_h_dir, 0))
 
 
-	var target_velocity = direction * speed
+	var target_velocity = input_h_dir * speed
 	var acceleration = (speed * delta) / time_to_top_speed 
 	velocity.x = move_toward(velocity.x, target_velocity, acceleration)
 
