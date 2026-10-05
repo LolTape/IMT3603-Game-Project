@@ -6,6 +6,7 @@ extends Area2D
 # when this hurtbox is hit.
 @export var health_component: HealthComponent
 
+var invis_time : float
 
 ## Applies incoming damage to the associated [HealthComponent].
 ##
@@ -14,5 +15,14 @@ extends Area2D
 ##
 ## [param attack_damage] The amount of damage to apply.
 func take_hit(attack: float) -> void:
-	if health_component:
+	if !health_component:
+		return
+	if !invis_time:
 		health_component.damage(attack)
+
+func _process(delta: float) -> void:
+	invis_time = max(invis_time - delta, 0.0)
+
+func _set_invincibiliy_time(new_i_time: float):
+	if new_i_time >= invis_time:
+		invis_time = new_i_time

@@ -196,9 +196,6 @@ position = Vector2(32, -100)
 slide_on_ceiling = false
 max_health = 20.0
 speed = 220.0
-time_to_top_speed = 0.1
-jump_time_to_peak = 0.6
-jump_time_to_descent = 0.6
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
 position = Vector2(-10, 8)

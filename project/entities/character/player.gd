@@ -11,8 +11,12 @@ extends CharacterBody2D
 
 
 # Movement variables
-@export var speed : float = 10000
+@export var speed : float
 @export var time_to_top_speed : float
+
+@export var dash_speed : float
+@export var dash_cooldown : float
+@export var dash_i_time : float
 
 @export var jump_height : float
 @export var jump_time_to_peak : float
@@ -22,10 +26,9 @@ extends CharacterBody2D
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
+var dash_cd = 0
 
-
-
-
+signal dash_invincibiliy_time(i_time: float) # give i_frames in seconds
 
 ## Called when the node enters the scene tree for the first time.
 ## Connects the health component's death signal to the player's death behaviour.
@@ -34,29 +37,40 @@ func _ready() -> void:
 	health.current_health = max_health
 	health.died.connect(_on_died)
 
+func jump():
+	if is_on_floor():
+		velocity.y += jump_velocity
 
+func dash(direction: Vector2) -> void: 
+	if dash_cd: # if still on cooldown, don't dash
+		return
+
+	dash_cd = dash_cooldown
+	velocity += direction * dash_speed
+	dash_invincibiliy_time.emit(dash_i_time)
+	
+func gravity() -> float:
+	var base_gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
+	if !Input.is_action_pressed("jump"): # if jump is release, fall faster
+		return 2 * base_gravity
+
+	return base_gravity
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-func jump():
-	velocity.y += jump_velocity
-
-func gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
-
-
-
+	dash_cd = max(dash_cd - delta, 0.0)
 
 func _physics_process(delta: float):
-	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+
+	if Input.is_action_just_pressed("jump"):
 		jump()
-	if !Input.is_action_pressed("jump") and !is_on_floor(): # go down faster if jump is released
-		velocity.y += gravity() * delta
 
 	var direction = Input.get_axis("left", "right")
+
+	if Input.is_action_just_pressed("dash"):
+		dash(Vector2(direction, 0))
+
+
 	var target_velocity = direction * speed
 	var acceleration = (speed * delta) / time_to_top_speed 
 	velocity.x = move_toward(velocity.x, target_velocity, acceleration)
@@ -71,3 +85,5 @@ func _on_died() -> void:
 	death_sound.play()
 	await death_sound.finished
 	queue_free()
+
+	
