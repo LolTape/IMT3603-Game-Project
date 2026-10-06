@@ -47,7 +47,6 @@ shape = SubResource("RectangleShape2D_4hwu2")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=911626479]
 stream = ExtResource("5_3ekpe")
-volume_db = 36.0
 pitch_scale = 1.6
 
 [connection signal="dash_invincibiliy_time" from="." to="HurtboxComponent" method="_set_invincibiliy_time"]
