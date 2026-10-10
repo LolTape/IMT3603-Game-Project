@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1u8u34sb10j7" path="res://entities/character/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://ba0gop8bb2388" path="res://basicPlatform.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://8vv0df534oyc" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 5.png" id="2_eow3j"]
-[ext_resource type="PackedScene" uid="uid://ci7t6dj8htjot" path="res://entities/enemies/Wolf.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://ci7t6dj8htjot" path="res://entities/enemies/Bird.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://b4vhw6pkn7vek" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 3.png" id="3_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://bga85syodlrt2" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 2.png" id="4_vef74"]
 [ext_resource type="Texture2D" uid="uid://eavuqjy13m7f" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png" id="5_hve3p"]
