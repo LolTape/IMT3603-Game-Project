@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bga85syodlrt2" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 2.png" id="4_vef74"]
 [ext_resource type="Texture2D" uid="uid://eavuqjy13m7f" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://ctqng0wvj0iny" path="res://assets/tilesets/tileset_grass.png" id="7_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://c5pkupe0tq0cs" path="res://entities/enemies/Wolf.tscn" id="9_vef74"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
 distance = -3.0
@@ -221,6 +222,9 @@ tile_set = SubResource("TileSet_3kbpl")
 rendering_quadrant_size = 32
 physics_quadrant_size = 32
 
-[node name="Wolf" parent="." unique_id=1752258715 instance=ExtResource("3_feb5d")]
+[node name="Bird" parent="." unique_id=1752258715 instance=ExtResource("3_feb5d")]
 position = Vector2(-110, -93.00001)
 scale = Vector2(0.365, 0.365)
+
+[node name="CharacterBody2D" parent="." unique_id=108552749 instance=ExtResource("9_vef74")]
+position = Vector2(129, -80)
