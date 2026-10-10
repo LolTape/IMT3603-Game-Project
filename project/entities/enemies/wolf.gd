@@ -21,6 +21,7 @@ extends CharacterBody2D
 var player: CharacterBody2D
 var detected = false
 var facingDirection
+var inAttackRange = false
 
 # movement directions
 var left = -1
@@ -31,6 +32,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	health.max_health = max_health
 	health.current_health = max_health
+	velocity.x = speed
 	
 
 # Returns the direction of where the player is from the entity
@@ -56,6 +58,8 @@ func _swapDirection() -> void:
 
 
 func _wolf_bite_attack():
+	velocity.y = speed
+	
 	# summon hitbox and animation and fly toward target and timers
 		
 
@@ -64,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 	if (detected):
-		eD = _enemyDirection()
+		var eD = _enemyDirection()
 		if facingDirection != eD:
 			_swapDirection()
 			move_and_slide()
@@ -73,6 +77,10 @@ func _physics_process(delta: float) -> void:
 
 	else: 
 		move_and_slide()
+		if is_on_wall():
+			_swapDirection()
+		
+			
 
 	
 

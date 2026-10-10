@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nn6ijoewqxm6"]
 
-[ext_resource type="Script" uid="uid://d7jloq1pk2nt" path="res://entities/enemies/Bird.gd" id="1_c6nnx"]
+[ext_resource type="Script" uid="uid://c6ejl2p81lvy" path="res://entities/enemies/Viking_Sword.gd" id="1_c6nnx"]
 [ext_resource type="Texture2D" uid="uid://dkvsln8scg5ep" path="res://assets/sprites/Wolf_Placeholder.png" id="2_d3vye"]
 [ext_resource type="Script" uid="uid://go64xmw3tbop" path="res://components/health_component.gd" id="3_dity0"]
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox_component.gd" id="4_e20g7"]

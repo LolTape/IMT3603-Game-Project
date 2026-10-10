@@ -16,7 +16,6 @@ size = Vector2(30, 27.3)
 size = Vector2(16, 14.5625)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1752258715]
-collision_mask = 0
 script = ExtResource("1_bychn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1680002173]
@@ -26,7 +25,6 @@ texture = ExtResource("2_bychn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909759327]
 position = Vector2(-1, 2.6325)
 shape = SubResource("RectangleShape2D_4hwu2")
-disabled = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1060687916]
 script = ExtResource("2_hp7qb")
