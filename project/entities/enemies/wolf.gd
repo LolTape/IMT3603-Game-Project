@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var movement_speed: float = 4.0
+@export var speed: float = 4.0
 @export var max_health: float = 100.0
 
 
@@ -12,10 +12,12 @@ extends CharacterBody2D
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 
+velocity = Vector2.ZERO
 
 
 
 var player: CharacterBody2D
+var detected = false
 
 
 func _ready() -> void:
@@ -24,6 +26,9 @@ func _ready() -> void:
 	health.current_health = max_health
 	
 
+# Returns false for player being left and true for player being right of the entity
+func _enemyDirection() -> bool:
+	return global_position.x - player.global_position.x > 0
 
 
 
@@ -31,6 +36,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if player == null:
 		return
+	if (detected):
+		
+
+	else: 
+		velocity.x = speed
+		
+
+	
 
 
 func _on_velocity_computed(safe_velocity: Vector2):
