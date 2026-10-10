@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ci7t6dj8htjot"]
+[gd_scene format=3 uid="uid://c5pkupe0tq0cs"]
 
-[ext_resource type="Script" uid="uid://d7jloq1pk2nt" path="res://entities/enemies/wolf.gd" id="1_bychn"]
+[ext_resource type="Script" uid="uid://d7jloq1pk2nt" path="res://entities/enemies/Bird.gd" id="1_bychn"]
 [ext_resource type="Texture2D" uid="uid://dkvsln8scg5ep" path="res://assets/sprites/Wolf_Placeholder.png" id="1_mhnpo"]
 [ext_resource type="Script" uid="uid://go64xmw3tbop" path="res://components/health_component.gd" id="2_hp7qb"]
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox_component.gd" id="3_bychn"]
