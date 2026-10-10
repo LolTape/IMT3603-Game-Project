@@ -11,13 +11,20 @@ extends CharacterBody2D
 # Gets the deathsound that will be called later
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
+@onready var wolf_static: Sprite2D = $Sprite2D
 
-velocity = Vector2.ZERO
+
+
 
 
 
 var player: CharacterBody2D
 var detected = false
+var facingDirection
+
+# movement directions
+var left = -1
+var right = 1
 
 
 func _ready() -> void:
@@ -26,22 +33,46 @@ func _ready() -> void:
 	health.current_health = max_health
 	
 
-# Returns false for player being left and true for player being right of the entity
-func _enemyDirection() -> bool:
-	return global_position.x - player.global_position.x > 0
+# Returns the direction of where the player is from the entity
+func _enemyDirection() -> int:
+	if (global_position.x - player.global_position.x > 0):
+		return right
+	else:
+		return left
+
+func _swapDirection() -> void:
+	if facingDirection == left:
+		facingDirection = right
+		wolf_static.flip_h = false
+		velocity.x = speed * facingDirection
+		
+	else:
+		facingDirection = left
+		wolf_static.flip_h = true
+		velocity.x = speed * facingDirection
 
 
+
+
+
+func _wolf_bite_attack():
+	# summon hitbox and animation and fly toward target and timers
+		
 
 
 func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 	if (detected):
-		
+		eD = _enemyDirection()
+		if facingDirection != eD:
+			_swapDirection()
+			move_and_slide()
+		if (inAttackRange):
+			_wolf_bite_attack()
 
 	else: 
-		velocity.x = speed
-		
+		move_and_slide()
 
 	
 
