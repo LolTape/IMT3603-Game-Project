@@ -1,21 +1,9 @@
 [gd_scene format=3 uid="uid://b75myf3u1rhnd"]
 
-[sub_resource type="GDScript" id="GDScript_n2snw"]
-script/source = "extends CanvasLayer
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
+[ext_resource type="Script" uid="uid://cf7424ibsxmc2" path="res://hud.gd" id="1_37p78"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1638831020]
-script = SubResource("GDScript_n2snw")
+script = ExtResource("1_37p78")
 
 [node name="Control" type="Control" parent="." unique_id=2083457685]
 layout_mode = 3
@@ -46,12 +34,5 @@ custom_minimum_size = Vector2(400, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-value = 70.0
-rounded = true
-
-[node name="RandomBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer" unique_id=2099336811]
-custom_minimum_size = Vector2(400, 30)
-layout_mode = 2
-size_flags_horizontal = 0
 value = 70.0
 rounded = true
