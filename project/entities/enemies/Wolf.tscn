@@ -13,7 +13,7 @@ size = Vector2(30, 27.265)
 size = Vector2(30, 27.3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjwaw"]
-size = Vector2(16, 14.5625)
+size = Vector2(29, 19.5625)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1752258715]
 script = ExtResource("1_bychn")
@@ -44,5 +44,5 @@ script = ExtResource("4_l24s3")
 metadata/_custom_type_script = "uid://bebbiqbxsmp3h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=673649240]
-position = Vector2(14, -4.28125)
+position = Vector2(20.5, -1.78125)
 shape = SubResource("RectangleShape2D_gjwaw")
