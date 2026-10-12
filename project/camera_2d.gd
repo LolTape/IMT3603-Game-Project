@@ -57,5 +57,5 @@ func release_camera_on_movement_or_release() -> void:
 		move_direction = 0.0
 		held_time = 0.0
 
-	if not held_long_enough():
+	if position != original_position and not held_long_enough():
 		move_camera_to_destination(original_position) # resets camera pos
