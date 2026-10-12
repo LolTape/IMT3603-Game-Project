@@ -227,3 +227,9 @@ position = Vector2(213, -79)
 
 [node name="Platform wolf" parent="." unique_id=1752258715 instance=ExtResource("9_vef74")]
 position = Vector2(137, -210)
+
+[node name="Wolfling2" parent="." unique_id=2020235554 instance=ExtResource("9_vef74")]
+position = Vector2(-102, -243)
+
+[node name="Wolfling3" parent="." unique_id=1079439570 instance=ExtResource("9_vef74")]
+position = Vector2(1173, -149)
