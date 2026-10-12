@@ -22,25 +22,16 @@ func _process(delta: float) -> void:
 
 	if !move_direction: # so that only one input is allowed at a time
 		move_direction = Input.get_axis("up", "down") # sets direction once so that you cant press up and down simultaneously.
-	
+
 	# checks if player is holding up/down, while standing still on the ground.
 	if (standing_still() and move_direction): 
 		held_time += delta
 	
+	release_camera_on_movement_or_release()
+	
 	# moves camera based on direction and time held
 	if held_long_enough():	
 		move_camera_to_destination(camera_target_position * move_direction) # sends target position based on what direction held
-	else: 
-		move_camera_to_destination(original_position) # resets camera pos
-
-	# resets direction and held time if player releases button or starts moving
-	if (
-		(move_direction == 1.0 and Input.is_action_just_released("down"))
-		or (move_direction == -1.0 and Input.is_action_just_released("up"))
-		or not standing_still()
-	):
-		move_direction = 0.0
-		held_time = 0.0
 
 
 # move camera to destination
@@ -51,5 +42,20 @@ func move_camera_to_destination(destination : Vector2):
 func standing_still() -> bool:
 	return player.is_on_floor() and player.velocity == Vector2(0, 0)
 
+
 func held_long_enough() -> bool:
 	return held_time >= time_to_hold
+
+
+# resets camera position, direction and held time if player releases button or starts moving
+func release_camera_on_movement_or_release() -> void:
+	if (
+		(move_direction == 1.0 and Input.is_action_just_released("down"))
+		or (move_direction == -1.0 and Input.is_action_just_released("up"))
+		or not standing_still()
+	):
+		move_direction = 0.0
+		held_time = 0.0
+
+	if not held_long_enough():
+		move_camera_to_destination(original_position) # resets camera pos
