@@ -9,10 +9,12 @@ var held_time = 0.0 # how long the button has been held
 var move_direction : int = 0 # 1 for down, -1 for up, 0 for none
 var destination : Vector2 # where camera should move to
 
+@onready var player: CharacterBody2D = get_parent() as CharacterBody2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	position = Vector2(0, 0)
-	zoom = Vector2(4, 4)
+	#zoom = Vector2(1, 1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +37,7 @@ func _process(delta: float) -> void:
 		move_direction = 0
 
 
-	if move_direction:
+	if move_direction and player.is_on_floor() and player.velocity == Vector2(0, 0):
 		destination = camera_target_position * move_direction
 	else: 
 		destination = original_position
