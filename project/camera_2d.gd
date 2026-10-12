@@ -6,7 +6,7 @@ extends Camera2D
 
 var original_position : Vector2 = Vector2(0, 0) # original position relative to the player
 var camera_target_position: Vector2 = Vector2(0, 80) # position camera should move to downwards, negative for upwards.
-var hold_time = 1.0 # seconds to hold for camera to move down/up
+var time_to_hold = 1.0 # seconds to hold for camera to move down/up
 var held_time = 0.0 # how long the button has been held
 var move_direction : float = 0.0 # 1.0 for down, -1.0 for up, 0.0 for none
 
@@ -22,13 +22,13 @@ func _process(delta: float) -> void:
 
 	if !move_direction: # so that only one input is allowed at a time
 		move_direction = Input.get_axis("up", "down") # sets direction once so that you cant press up and down simultaneously.
-
+	
 	# checks if player is holding up/down, while standing still on the ground.
 	if (standing_still() and move_direction): 
 		held_time += delta
 	
 	# moves camera based on direction and time held
-	if held_time >= hold_time:	
+	if held_long_enough():	
 		move_camera_to_destination(camera_target_position * move_direction) # sends target position based on what direction held
 	else: 
 		move_camera_to_destination(original_position) # resets camera pos
@@ -50,3 +50,6 @@ func move_camera_to_destination(destination : Vector2):
  # checks if player is standing still on the ground
 func standing_still() -> bool:
 	return player.is_on_floor() and player.velocity == Vector2(0, 0)
+
+func held_long_enough() -> bool:
+	return held_time >= time_to_hold
