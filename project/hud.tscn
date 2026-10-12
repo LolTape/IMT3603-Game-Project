@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cf7424ibsxmc2" path="res://hud.gd" id="1_37p78"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_640wx"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2258"]
+bg_color = Color(0.07907104, 0.71613747, 0.36760998, 1)
+border_color = Color(0.7875773, 0.805606, 0.79842764, 1)
+
 [node name="HUD" type="CanvasLayer" unique_id=1638831020]
 script = ExtResource("1_37p78")
 
@@ -34,5 +49,8 @@ custom_minimum_size = Vector2(400, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_640wx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_a2258")
 value = 70.0
 rounded = true
+show_percentage = false
