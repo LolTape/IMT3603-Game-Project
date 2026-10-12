@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b75myf3u1rhnd"]
+
+[sub_resource type="GDScript" id="GDScript_n2snw"]
+script/source = "extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="HUD" type="CanvasLayer" unique_id=1638831020]
+script = SubResource("GDScript_n2snw")
+
+[node name="Control" type="Control" parent="." unique_id=2083457685]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1143295813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1021909423]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="HealthBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer" unique_id=821976994]
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+value = 70.0
+rounded = true
+
+[node name="RandomBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer" unique_id=2099336811]
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+value = 70.0
+rounded = true
