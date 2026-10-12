@@ -1,5 +1,6 @@
 extends Camera2D
 
+@onready var player: CharacterBody2D = get_parent() as CharacterBody2D
 
 @export var move_speed : float = 400.0
 var original_position : Vector2 = Vector2(0, 0) # original position relative to the player
@@ -18,26 +19,22 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
-	if Input.is_action_pressed("down"):
-	
+	if (
+		(Input.is_action_pressed("down") or Input.is_action_pressed("up")) # if player is hold down or up
+		and player.is_on_floor() and player.velocity == Vector2(0, 0) # no movement
+	):
 		held_time += delta
-		if held_time >= hold_time:
-			move_direction = 1
 
-	elif Input.is_action_pressed("up"):
-
-		held_time += delta
-		if held_time >= hold_time:
-			move_direction = -1
-
-	else:
+	else: # resets timer and direction if not holding down or up
 		held_time = 0.0
 		move_direction = 0
 
 
-	if move_direction:
+	if held_time >= hold_time:
+		move_direction = int(Input.get_axis("up", "down"))
 		destination = camera_target_position * move_direction
 	else: 
 		destination = original_position
 
 	position.y = move_toward(position.y, destination.y, move_speed * delta)
+	
