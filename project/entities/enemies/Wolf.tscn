@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5pkupe0tq0cs"]
 
-[ext_resource type="Script" uid="uid://t7wadmx4e0dq" path="res://entities/enemies/wolf.gd" id="1_l24s3"]
+[ext_resource type="Script" uid="uid://b55svy1gv1kyq" path="res://entities/enemies/wolf.gd" id="1_l24s3"]
 [ext_resource type="Texture2D" uid="uid://djg2wcnp68ilv" path="res://assets/sprites/wolf_gray001.png" id="2_bychn"]
 [ext_resource type="Script" uid="uid://go64xmw3tbop" path="res://components/health_component.gd" id="2_hp7qb"]
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox_component.gd" id="3_bychn"]
@@ -51,3 +51,6 @@ shape = SubResource("RectangleShape2D_gjwaw")
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1288342708]
 stream = ExtResource("6_nfqgw")
 pitch_scale = 1.6
+
+[node name="Edge_Detection" type="RayCast2D" parent="." unique_id=862023209]
+position = Vector2(20, 0)

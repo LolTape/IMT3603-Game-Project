@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var speed: float = 4.0
+@export var speed: float = 40.0
 @export var max_health: float = 100.0
 
-
+@onready var ray: RayCast2D = $Edge_Detection
 
 # Gets health and is needed for death behaviour.
 @onready var health: HealthComponent = $HealthComponent
@@ -47,12 +47,13 @@ func _swapDirection() -> void:
 		facingDirection = right
 		wolf_static.flip_h = false
 		velocity.x = speed * facingDirection
+		ray.position.x = ray.position.x * -1
 		
 	else:
 		facingDirection = left
 		wolf_static.flip_h = true
 		velocity.x = speed * facingDirection
-
+		ray.position.x = ray.position.x * -1
 
 
 
@@ -77,7 +78,7 @@ func _physics_process(delta: float) -> void:
 
 	else: 
 		move_and_slide()
-		if is_on_wall():
+		if is_on_wall() or not ray.is_colliding():
 			_swapDirection()
 		
 			
