@@ -199,8 +199,6 @@ max_health = 20.0
 speed = 220.0
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
-position = Vector2(-11, 8)
-zoom = Vector2(4, 4)
 script = ExtResource("7_vef74")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1391495661]

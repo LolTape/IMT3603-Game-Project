@@ -11,7 +11,8 @@ var destination : Vector2 # where camera should move to
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	position = Vector2(0, 0)
+	zoom = Vector2(4, 4)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
