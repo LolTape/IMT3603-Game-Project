@@ -19,21 +19,29 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
+	if !move_direction:
+		move_direction = Input.get_axis("up", "down") # sets direction once so that you cant press up and down simultaneously.
+
+	# checks if player is holding up/down, while standing still on the ground.
 	if (
-		(Input.is_action_pressed("down") or Input.is_action_pressed("up")) # if player is hold down or up
-		and player.is_on_floor() and player.velocity == Vector2(0, 0) # no movement
+		move_direction
+		and player.is_on_floor() 
+		and player.velocity == Vector2(0, 0)
 	):
 		held_time += delta
 
-	else: # resets timer and direction if not holding down or up
-		held_time = 0.0
-		move_direction = 0.0
-
-
+	
 	if held_time >= hold_time:	
-		move_direction = Input.get_axis("up", "down")
 		destination = camera_target_position * move_direction  # sets destination based on what direction held
 	else: 
 		destination = original_position
-
+	
 	position.y = move_toward(position.y, destination.y, move_speed * delta) # move camera to destination
+
+	# resets direction and held time if player releases button
+	if (
+		(move_direction == 1.0 and Input.is_action_just_released("down")) # two checks to make sure player can't reset camera with the wrong button.
+		or (move_direction == -1.0 and Input.is_action_just_released("up"))
+	):
+		move_direction = 0.0
+		held_time = 0.0
