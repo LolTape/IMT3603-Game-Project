@@ -20,11 +20,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
-	if !move_direction: # so that only one input is allowed at a time
-		move_direction = Input.get_axis("up", "down") # sets direction once so that you cant press up and down simultaneously.
-
 	# checks if player is holding up/down, while standing still on the ground.
-	if (standing_still() and move_direction): 
+	if (standing_still() and get_move_direction()): 
 		held_time += delta
 	
 	release_camera_on_movement_or_release()
@@ -34,9 +31,17 @@ func _process(delta: float) -> void:
 		move_camera_to_destination(camera_target_position * move_direction) # sends target position based on what direction held
 
 
+# returns true if up or down is held, and sets move_direction to the direction held.
+func get_move_direction() -> bool:
+	if !move_direction:
+		move_direction = Input.get_axis("up", "down") 
+	return move_direction 
+
+
 # move camera to destination
 func move_camera_to_destination(destination : Vector2):
 	position.y = move_toward(position.y, destination.y, move_speed * get_process_delta_time())
+
 
  # checks if player is standing still on the ground
 func standing_still() -> bool:
