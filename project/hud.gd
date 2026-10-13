@@ -21,3 +21,4 @@ func _ready() -> void:
 
 func _on_health_changed(new_amount: float) -> void:
 	health_bar.value = new_amount
+	create_tween()
