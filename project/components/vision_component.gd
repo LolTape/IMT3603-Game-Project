@@ -31,4 +31,9 @@ func in_vision(target: Node2D, facingDirection: int) -> bool:
 	# fov is divded into two as we removed negative values which is half of the equation (/2) deg_to_rad makes degrees workable with our angle 
 	if (abs(angle) > deg_to_rad(fov_degrees/2)):
 		return false
-	return true
+
+	# sets the ray's endpoint to the target's position in vision_ray's local cordinate system
+	vision_ray.target_position = vision_ray.to_local(target.global_position)
+	vision_ray.force_raycast_update()
+	# returns true if the ray collider hits the target first, otherwise it returns false
+	return vision_ray.get_collider() == target
