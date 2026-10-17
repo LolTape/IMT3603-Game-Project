@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://80xd1laqjcwm"]
+
+[ext_resource type="Script" uid="uid://c55yrct06h42w" path="res://components/vision_component.gd" id="1_bfieu"]
+
+[node name="VisionComponent" type="Node2D" unique_id=1477077008]
+script = ExtResource("1_bfieu")
+
+[node name="Vision_Ray" type="RayCast2D" parent="." unique_id=915686159]
+target_position = Vector2(48, 0)
