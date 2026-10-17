@@ -1,12 +1,25 @@
 extends CharacterBody2D
 
+
 @export var speed: float = 40.0
 @export var max_health: float = 100.0
 
-@onready var ray: RayCast2D = $Edge_Detection
+# Vision settings
+@export var fov_degrees: float = 90.0
+@export var vision_length: float = 250.0
+
+
+@onready var edge_ray: RayCast2D = $Edge_Detection
+@onready var aggro_range: Area2D = $Aggro_Range
+
+
 
 # Gets health and is needed for death behaviour.
 @onready var health: HealthComponent = $HealthComponent
+
+# Gets vision 
+@onready var vision: Node2D = $VisionComponent
+
 
 # Gets the deathsound that will be called later
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
@@ -28,10 +41,14 @@ var left = -1
 var right = 1
 
 
+
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	health.max_health = max_health
 	health.current_health = max_health
+	vision.fov_degrees = fov_degrees
+	vision.vision_length = vision_length
 	velocity.x = speed
 	
 
@@ -47,13 +64,13 @@ func _swapDirection() -> void:
 		facingDirection = right
 		wolf_static.flip_h = false
 		velocity.x = speed * facingDirection
-		ray.position.x = ray.position.x * -1
+		edge_ray.position.x = edge_ray.position.x * -1
 		
 	else:
 		facingDirection = left
 		wolf_static.flip_h = true
 		velocity.x = speed * facingDirection
-		ray.position.x = ray.position.x * -1
+		edge_ray.position.x = edge_ray.position.x * -1
 
 
 
@@ -78,11 +95,12 @@ func _physics_process(delta: float) -> void:
 
 	else: 
 		move_and_slide()
-		if is_on_wall() or not ray.is_colliding():
+		if is_on_wall() or not edge_ray.is_colliding():
 			_swapDirection()
 		
 			
-
+func _detection():
+	
 	
 
 
