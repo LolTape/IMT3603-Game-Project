@@ -3,10 +3,10 @@ extends Camera2D
 @onready var player: CharacterBody2D = get_parent() as CharacterBody2D
 
 @export var move_speed : float = 400.0
+@export var time_to_hold = 0.5 # seconds to hold for camera to move down/up
+@export var camera_target_position: Vector2 = Vector2(0, 80) # position camera should move to downwards, negative for upwards.
 
 var original_position : Vector2 = Vector2(0, 0) # original position relative to the player
-var camera_target_position: Vector2 = Vector2(0, 80) # position camera should move to downwards, negative for upwards.
-var time_to_hold = 0.5 # seconds to hold for camera to move down/up
 var held_time = 0.0 # how long the button has been held
 var move_direction : float = 0.0 # 1.0 for down, -1.0 for up, 0.0 for none
 
