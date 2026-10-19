@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var health_bar: ProgressBar = $Control/MarginContainer/VBoxContainer/HealthBar
 
 var health: HealthComponent
+var health_tween: Tween
 
 
 func _ready() -> void:
@@ -20,5 +21,10 @@ func _ready() -> void:
 
 
 func _on_health_changed(new_amount: float) -> void:
-	health_bar.value = new_amount
-	create_tween()
+	if health_tween:
+		health_tween.kill()
+
+	health_tween = create_tween()
+	health_tween.set_trans(Tween.TRANS_QUAD)
+	health_tween.set_ease(Tween.EASE_OUT)
+	health_tween.tween_property(health_bar, "value", new_amount, 0.3)
