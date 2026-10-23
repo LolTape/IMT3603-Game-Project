@@ -7,6 +7,7 @@ extends CharacterBody2D
 # Vision settings
 @export var fov_degrees: float = 90.0
 @export var vision_length: float = 250.0
+@export var AttackRange: float = 50.0
 
 
 @onready var edge_ray: RayCast2D = $Edge_Detection
@@ -35,6 +36,7 @@ var player: CharacterBody2D
 var detected = false
 var facingDirection
 var inAttackRange = false
+var aggroed = false
 
 # movement directions
 var left = -1
@@ -85,7 +87,13 @@ func _wolf_bite_attack():
 func _physics_process(delta: float) -> void:
 	if player == null:
 		return
-	if (detected):
+	if (vision.in_vision(player, facingDirection) and not aggroed):
+		aggroed = true
+	
+	if (aggroed):
+		if  not aggro_range.get_overlapping_bodies().has(player):
+			aggroed = false
+			return
 		var eD = _enemyDirection()
 		if facingDirection != eD:
 			_swapDirection()
@@ -99,9 +107,9 @@ func _physics_process(delta: float) -> void:
 			_swapDirection()
 		
 			
-func _detection():
+#func _detection():
 	
-	
+
 
 
 func _on_velocity_computed(safe_velocity: Vector2):
