@@ -84,11 +84,28 @@ func _physics_process(delta: float):
 	velocity.y += gravity() * delta
 	move_and_slide()
 	
-# Animation for walking and idle
-	if is_on_floor() and velocity.x != 0:
-		$AnimatedSprite2D.play("walking")
+	update_animation()
+	
+# Animation for the player
+func update_animation():
+	if not is_on_floor():
+		if sprite.animation != "jump":
+			sprite.animation = "jump"
+		sprite.pause()
+		
+		# pause sprite so jump animation is correct by time in air
+		if velocity.y < -150:
+			sprite.frame = 2
+		elif velocity.y < -40:
+			sprite.frame = 3
+		elif velocity.y < 40:
+			sprite.frame = 4
+		else:
+			sprite.frame = 5
+	elif velocity.x != 0:
+		sprite.play("walking")
 	else:
-		$AnimatedSprite2D.play("idle")
+		sprite.play("idle")
 	
 ## Stops the player's physics processing and removes the player
 ## from the scene when their health reaches zero.
