@@ -26,7 +26,7 @@ extends CharacterBody2D
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
-@export var sprite : Sprite2D
+@export var sprite : AnimatedSprite2D
 
 var dash_cd = 0
 ## input horizontal direction
@@ -83,6 +83,12 @@ func _physics_process(delta: float):
 
 	velocity.y += gravity() * delta
 	move_and_slide()
+	
+# Animation for walking and idle
+	if is_on_floor() and velocity.x != 0:
+		$AnimatedSprite2D.play("walking")
+	else:
+		$AnimatedSprite2D.play("idle")
 	
 ## Stops the player's physics processing and removes the player
 ## from the scene when their health reaches zero.
