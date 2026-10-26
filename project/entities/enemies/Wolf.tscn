@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox_component.gd" id="3_bychn"]
 [ext_resource type="Script" uid="uid://bebbiqbxsmp3h" path="res://components/hitbox_component.gd" id="4_l24s3"]
 [ext_resource type="AudioStream" uid="uid://cfsjv1kdc3cet" path="res://assets/sound/Alpha_wolf_meme.mp3" id="6_nfqgw"]
+[ext_resource type="PackedScene" uid="uid://80xd1laqjcwm" path="res://components/Vision_Component.tscn" id="7_nfqgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
 size = Vector2(30, 27.265)
@@ -16,8 +17,13 @@ size = Vector2(30, 27.3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjwaw"]
 size = Vector2(29, 19.5625)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgbpd"]
+size = Vector2(255, 165)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1752258715]
 script = ExtResource("1_l24s3")
+vision_length = 100.0
+AttackRange = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1680002173]
 scale = Vector2(1.006, 1.019)
@@ -41,11 +47,13 @@ position = Vector2(-1, 2.6499999)
 shape = SubResource("RectangleShape2D_0mwmh")
 
 [node name="HitboxComponent" type="Area2D" parent="." unique_id=5579178]
+position = Vector2(16.765, -3.435)
+monitoring = false
 script = ExtResource("4_l24s3")
 metadata/_custom_type_script = "uid://bebbiqbxsmp3h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=673649240]
-position = Vector2(20.5, -1.78125)
+position = Vector2(1.2350006, 1.435)
 shape = SubResource("RectangleShape2D_gjwaw")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1288342708]
@@ -54,3 +62,11 @@ pitch_scale = 1.6
 
 [node name="Edge_Detection" type="RayCast2D" parent="." unique_id=862023209]
 position = Vector2(20, 0)
+
+[node name="Aggro_Range" type="Area2D" parent="." unique_id=1128158000]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro_Range" unique_id=226388835]
+shape = SubResource("RectangleShape2D_jgbpd")
+
+[node name="VisionComponent" parent="." unique_id=1477077008 instance=ExtResource("7_nfqgw")]
+position = Vector2(7.83, -5.625)
