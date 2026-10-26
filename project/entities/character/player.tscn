@@ -5,12 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://bgxhos7bb5tj0" path="res://assets/sprites/character.png" id="2_6i0tm"]
 [ext_resource type="Script" uid="uid://ckghf7s2cwfre" path="res://components/hurtbox-component.gd" id="3_hmpou"]
 [ext_resource type="AudioStream" uid="uid://cfsjv1kdc3cet" path="res://assets/sound/Alpha_wolf_meme.mp3" id="5_3ekpe"]
+[ext_resource type="Script" uid="uid://bebbiqbxsmp3h" path="res://components/hitbox_component.gd" id="6_rlso7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
 size = Vector2(19, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwu2"]
 size = Vector2(19, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a27up"]
+size = Vector2(19.5, 24)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 groups=["player"]]
 script = ExtResource("1_pjt0s")
@@ -19,7 +23,6 @@ time_to_top_speed = 0.05
 jump_height = 100.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.4
-fall_speed = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=750564455]
 texture_filter = 1
@@ -44,3 +47,11 @@ shape = SubResource("RectangleShape2D_4hwu2")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=911626479]
 stream = ExtResource("5_3ekpe")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=73874295]
+script = ExtResource("6_rlso7")
+metadata/_custom_type_script = "uid://bebbiqbxsmp3h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1235503508]
+position = Vector2(15.25, 1)
+shape = SubResource("RectangleShape2D_a27up")
