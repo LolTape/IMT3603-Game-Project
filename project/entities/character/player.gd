@@ -6,6 +6,9 @@ extends CharacterBody2D
 # Gets health and is needed for death behaviour.
 @onready var health: HealthComponent = $HealthComponent
 
+# Gets state 
+@onready var state: StateComponent = $StateComponent
+
 # Gets the deathsound that will be called later
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
@@ -39,6 +42,7 @@ signal dash_invincibiliy_time(i_time: float) # give i_frames in seconds
 func _ready() -> void:
 	health.max_health = max_health
 	health.current_health = max_health
+	health.state = state
 	health.died.connect(_on_died)
 
 func jump():
@@ -110,6 +114,7 @@ func update_animation():
 ## Stops the player's physics processing and removes the player
 ## from the scene when their health reaches zero.
 func _on_died() -> void:
+	state.change_state(StateComponent.State.DEAD)
 	set_physics_process(false)
 	death_sound.play()
 	await death_sound.finished
