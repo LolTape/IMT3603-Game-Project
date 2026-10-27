@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b56fuqdw04nqv" path="res://assets/sprites/animation/characterAnimation/playerJumping.png" id="5_4g463"]
 [ext_resource type="Texture2D" uid="uid://bq7o4rpaf2vyi" path="res://assets/sprites/animation/characterAnimation/playerJumpingWithBasicSword.png" id="6_gcpck"]
 [ext_resource type="Texture2D" uid="uid://cddhmxkxm8ufg" path="res://assets/sprites/animation/characterAnimation/playerWalkingBasicSword.png" id="8_0xsky"]
+[ext_resource type="Script" uid="uid://btloy5hsb6xpi" path="res://components/state_component.gd" id="12_4g463"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7vl7"]
 atlas = ExtResource("2_bmyq4")
@@ -365,8 +366,9 @@ speed_scale = 3.0
 position = Vector2(-1.5, 2)
 shape = SubResource("RectangleShape2D_e2o6t")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1440161371]
+[node name="HealthComponent" type="Node" parent="." unique_id=1440161371 node_paths=PackedStringArray("state")]
 script = ExtResource("1_3hqro")
+state = NodePath("../StateComponent")
 metadata/_custom_type_script = "uid://go64xmw3tbop"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=284705041 node_paths=PackedStringArray("health_component")]
@@ -381,5 +383,9 @@ shape = SubResource("RectangleShape2D_4hwu2")
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=911626479]
 stream = ExtResource("5_3ekpe")
 pitch_scale = 1.6
+
+[node name="StateComponent" type="Node" parent="." unique_id=551607102]
+script = ExtResource("12_4g463")
+metadata/_custom_type_script = "uid://btloy5hsb6xpi"
 
 [connection signal="dash_invincibiliy_time" from="." to="HurtboxComponent" method="_set_invincibiliy_time"]
