@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://fi4daoyayo5o"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=1278863934]
+
+[node name="Control" type="Control" parent="." unique_id=2118637161]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
