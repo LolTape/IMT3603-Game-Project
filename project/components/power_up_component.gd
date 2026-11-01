@@ -2,12 +2,19 @@ class_name PowerupComponent
 extends Node
 
 @export var player: CharacterBody2D = get_parent() as CharacterBody2D
-
+@onready var state : StateComponent = $StateComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
 
+	if player:
+		init_power()
+	else:
+		printerr("No player!!!")
+
+
+func init_power() -> void:
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

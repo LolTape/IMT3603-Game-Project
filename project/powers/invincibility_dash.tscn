@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://hsv0057vkbji"]
+
+[ext_resource type="Script" uid="uid://bpk76tkfedawh" path="res://powers/scripts/invincibility_dash.gd" id="1_cbvoi"]
+
+[node name="InvincibilityDash" type="Node" unique_id=566393850]
+script = ExtResource("1_cbvoi")
+metadata/_custom_type_script = "uid://30uqepvbd8ib"
