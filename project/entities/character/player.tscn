@@ -13,6 +13,7 @@ size = Vector2(19, 28)
 size = Vector2(19, 28)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366459982 node_paths=PackedStringArray("sprite") groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_pjt0s")
 speed = 200.0
 time_to_top_speed = 0.1
@@ -37,6 +38,8 @@ script = ExtResource("1_3hqro")
 metadata/_custom_type_script = "uid://go64xmw3tbop"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=284705041 node_paths=PackedStringArray("health_component")]
+collision_layer = 32
+collision_mask = 16
 script = ExtResource("3_hmpou")
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://ckghf7s2cwfre"
