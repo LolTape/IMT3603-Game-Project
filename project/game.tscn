@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://eavuqjy13m7f" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://ctqng0wvj0iny" path="res://assets/tilesets/tileset_grass.png" id="7_j5wjh"]
 [ext_resource type="Script" uid="uid://d22up4yejjfqu" path="res://camera_2d.gd" id="7_vef74"]
+[ext_resource type="Script" uid="uid://btloy5hsb6xpi" path="res://components/state_component.gd" id="8_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://c5pkupe0tq0cs" path="res://entities/enemies/Wolf.tscn" id="9_vef74"]
 [ext_resource type="PackedScene" uid="uid://b75myf3u1rhnd" path="res://hud.tscn" id="10_hve3p"]
 
@@ -201,6 +202,10 @@ speed = 220.0
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
 script = ExtResource("7_vef74")
+
+[node name="StateComponent" type="Node" parent="player" unique_id=962090700]
+script = ExtResource("8_mfdv2")
+metadata/_custom_type_script = "uid://btloy5hsb6xpi"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1391495661]
 

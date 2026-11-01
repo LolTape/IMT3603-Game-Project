@@ -12,6 +12,8 @@ signal died
 # Useful for things such as health bars or other UI.
 signal health_changed(new_amount: float)
 
+# Gets state 
+@export var state: StateComponent
 
 # Maximum amount of health this entity can have.
 @export var max_health:= 100.0
@@ -34,6 +36,7 @@ func _ready(): current_health = max_health
 ##
 ## [param attack_damage] The amount of damage to inflict.
 func damage(attack_damage: float):
+	if state and not state.can_take_damage(): return
 	current_health = max(current_health - attack_damage, 0.0)
 	# Tells anything listening that the health value has changed.
 	health_changed.emit(current_health)
