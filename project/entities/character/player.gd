@@ -12,7 +12,6 @@ extends CharacterBody2D
 # Gets the deathsound that will be called later
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
-
 # Movement variables
 @export var speed : float
 @export var time_to_top_speed : float
@@ -35,8 +34,6 @@ var dash_cd = 0
 ## input horizontal direction
 var input_h_dir : float 
 
-signal dash_invincibiliy_time(i_time: float) # give i_frames in seconds
-
 ## Called when the node enters the scene tree for the first time.
 ## Connects the health component's death signal to the player's death behaviour.
 func _ready() -> void:
@@ -50,12 +47,12 @@ func jump():
 		velocity.y += jump_velocity
 
 func dash(dash_dir: Vector2) -> void: 
-	if dash_cd: # if still on cooldown, don't dash
+	if !state.can_dash() || dash_cd: # if still on cooldown, don't dash
 		return
 
 	dash_cd = dash_cooldown
 	velocity += dash_dir * dash_speed
-	dash_invincibiliy_time.emit(dash_i_time)
+	state.set_state(StateComponent.State.IFRAMES, dash_i_time)
 	
 func gravity() -> float:
 	var base_gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
@@ -114,7 +111,7 @@ func update_animation():
 ## Stops the player's physics processing and removes the player
 ## from the scene when their health reaches zero.
 func _on_died() -> void:
-	state.change_state(StateComponent.State.DEAD)
+	state.set_state(StateComponent.State.DEAD, INT64_MAX) # dead for a LOOONNNGG time (about 500 million years)
 	set_physics_process(false)
 	death_sound.play()
 	await death_sound.finished
