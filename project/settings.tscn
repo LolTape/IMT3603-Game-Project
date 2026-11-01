@@ -98,10 +98,15 @@ theme_override_font_sizes/font_size = 30
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1710059428]
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer" unique_id=637366851]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BackButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1710059428]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("7_y43lv")
 text = "Back"
 
-[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/BackButton" to="." method="_on_back_button_pressed"]

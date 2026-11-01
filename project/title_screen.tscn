@@ -98,24 +98,29 @@ theme_override_font_sizes/font_size = 30
 text = "Biking Valhala"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1033138367]
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer" unique_id=1934818844]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1033138367]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_ak2if")
 text = "Start"
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1710059428]
+[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1710059428]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_ak2if")
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1428638266]
+[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1428638266]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_ak2if")
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
