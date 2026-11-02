@@ -1,11 +1,13 @@
 extends PowerupComponent
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+
+func init_power():    
+    if player.on_dash():
+        state.set_state(StateComponent.State.IFRAMES, player.dash_i_time)
+        player.CollisionShape2D.disabled = true
+    if not player.on_dash():
+        player.CollisionShape2D.disabled = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	

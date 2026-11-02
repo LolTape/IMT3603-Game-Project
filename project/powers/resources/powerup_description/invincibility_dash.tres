@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="PowerUp" format=3 uid="uid://bewdcsvoeuvia"]
 
 [ext_resource type="Script" uid="uid://cnsa6gi0cfrf4" path="res://powers/resources/powerup_description.gd" id="1_r14wx"]
+[ext_resource type="PackedScene" uid="uid://hsv0057vkbji" path="res://powers/invincibility_dash.tscn" id="1_t1cgb"]
 
 [resource]
 script = ExtResource("1_r14wx")
+name = "Phasing Dash"
+description = "Lets you dash through enemies with invincibility for 0.5 seconds."
+powerup = ExtResource("1_t1cgb")
 metadata/_custom_type_script = "uid://cnsa6gi0cfrf4"

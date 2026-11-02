@@ -52,7 +52,7 @@ func dash(dash_dir: Vector2) -> void:
 
 	dash_cd = dash_cooldown
 	velocity += dash_dir * dash_speed
-	state.set_state(StateComponent.State.IFRAMES, dash_i_time)
+	
 	
 func gravity() -> float:
 	var base_gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
