@@ -22,7 +22,3 @@ func take_hit(attack: float) -> void:
 
 func _process(delta: float) -> void:
 	invis_time = max(invis_time - delta, 0.0)
-
-func _set_invincibiliy_time(new_i_time: float):
-	if new_i_time >= invis_time:
-		invis_time = new_i_time
