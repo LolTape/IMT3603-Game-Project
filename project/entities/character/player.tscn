@@ -387,5 +387,3 @@ pitch_scale = 1.6
 [node name="StateComponent" type="Node" parent="." unique_id=551607102]
 script = ExtResource("12_4g463")
 metadata/_custom_type_script = "uid://btloy5hsb6xpi"
-
-[connection signal="dash_invincibiliy_time" from="." to="HurtboxComponent" method="_set_invincibiliy_time"]
