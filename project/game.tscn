@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://eavuqjy13m7f" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://ctqng0wvj0iny" path="res://assets/tilesets/tileset_grass.png" id="7_j5wjh"]
 [ext_resource type="Script" uid="uid://d22up4yejjfqu" path="res://camera_2d.gd" id="7_vef74"]
-[ext_resource type="PackedScene" uid="uid://c5pkupe0tq0cs" path="res://entities/enemies/Wolf.tscn" id="9_vef74"]
+[ext_resource type="PackedScene" uid="uid://ci7t6dj8htjot" path="res://entities/enemies/Wolf.tscn" id="9_vef74"]
 [ext_resource type="PackedScene" uid="uid://b75myf3u1rhnd" path="res://hud.tscn" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://bgiompla5rsgo" path="res://pause_menu.tscn" id="11_mfdv2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
 distance = -3.0
@@ -236,3 +237,5 @@ position = Vector2(-102, -243)
 position = Vector2(1173, -149)
 
 [node name="HUD" parent="." unique_id=1638831020 instance=ExtResource("10_hve3p")]
+
+[node name="PauseMenu" parent="." unique_id=1454848845 instance=ExtResource("11_mfdv2")]
