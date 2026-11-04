@@ -6,6 +6,8 @@ func _ready():
 
 # Clicking Esc to get the pause menu
 func _input(event):
+	if get_tree().paused and not visible:
+		return # If game was paused by something else, like death
 	if event.is_action_pressed("pause"):
 		toggle_pause()
 
