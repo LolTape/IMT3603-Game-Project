@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://btloy5hsb6xpi" path="res://components/state_component.gd" id="8_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://c5pkupe0tq0cs" path="res://entities/enemies/Wolf.tscn" id="9_vef74"]
 [ext_resource type="PackedScene" uid="uid://b75myf3u1rhnd" path="res://hud.tscn" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://bgiompla5rsgo" path="res://pause_menu.tscn" id="11_mfdv2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
 distance = -3.0
@@ -241,3 +242,5 @@ position = Vector2(-102, -243)
 position = Vector2(1173, -149)
 
 [node name="HUD" parent="." unique_id=1638831020 instance=ExtResource("10_hve3p")]
+
+[node name="PauseMenu" parent="." unique_id=1454848845 instance=ExtResource("11_mfdv2")]

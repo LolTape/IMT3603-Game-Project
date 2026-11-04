@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bgiompla5rsgo"]
+
+[ext_resource type="FontFile" uid="uid://cjc8574gq2vnm" path="res://assets/font/Metamorphous-Regular.ttf" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://c6moh2a1lqc61" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="Texture2D" uid="uid://8vv0df534oyc" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 5.png" id="2_mxa3g"]
+[ext_resource type="Texture2D" uid="uid://cnduvf73id1ci" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 4.png" id="3_e8sti"]
+[ext_resource type="Texture2D" uid="uid://b4vhw6pkn7vek" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 3.png" id="4_q2yj1"]
+[ext_resource type="Texture2D" uid="uid://bga85syodlrt2" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 2.png" id="5_a32ks"]
+[ext_resource type="Texture2D" uid="uid://eavuqjy13m7f" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png" id="6_g7dbl"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1454848845]
+process_mode = 3
+layer = 10
+script = ExtResource("1_nwcfo")
+
+[node name="Sky" type="TextureRect" parent="." unique_id=304579769]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mxa3g")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Mountains" type="TextureRect" parent="." unique_id=1180752944]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e8sti")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TreesBehind2" type="TextureRect" parent="." unique_id=1751313478]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_q2yj1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TreesBehind" type="TextureRect" parent="." unique_id=1942251155]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_a32ks")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Trees" type="TextureRect" parent="." unique_id=620658298]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_g7dbl")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=403241049]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -78.0
+offset_right = 120.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=379589637]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7882353)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_hdmo1")
+theme_override_font_sizes/font_size = 30
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer" unique_id=1948421134]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1227073024]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_hdmo1")
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer/Buttons" unique_id=501196305]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_hdmo1")
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1253527057]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_hdmo1")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/ResumeButton" to="." method="on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MainMenuButton" to="." method="on_main_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/QuitButton" to="." method="on_quit_button_pressed"]
