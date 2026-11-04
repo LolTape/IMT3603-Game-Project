@@ -95,16 +95,20 @@ func _wolf_bite_attack(fD: int):
 	attacking = true 
 	velocity.x = 0
 	await get_tree().create_timer(beforeJump).timeout
+	if not is_inside_tree(): return
 	velocity.x = (speed * fD) * 4
 	velocity.y = -gravity * JumpTimeToPeak
 	while is_on_floor():
 		await get_tree().physics_frame
+		if not is_inside_tree(): return
 
 	while not is_on_floor():
 		await get_tree().physics_frame
+		if not is_inside_tree(): return
 	velocity.x = 0
 	biteHitBox.monitoring = true
 	await get_tree().create_timer(attackTime).timeout
+	if not is_inside_tree(): return
 	biteHitBox.monitoring = false
 	attacking = false
 	
