@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_r14wx")
-name = "Phasing Dash"
-description = "Lets you dash through enemies with invincibility for 0.5 seconds."
+name = "Invincibility dash"
+description = "Gives your dash invincibility for a short time."
 powerup = ExtResource("1_t1cgb")
 metadata/_custom_type_script = "uid://cnsa6gi0cfrf4"
