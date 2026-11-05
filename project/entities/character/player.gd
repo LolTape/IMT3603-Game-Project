@@ -113,8 +113,7 @@ func update_animation():
 func _on_died() -> void:
 	state.set_state(StateComponent.State.DEAD, INT64_MAX) # dead for a LOOONNNGG time (about 500 million years)
 	set_physics_process(false)
-	death_sound.play()
-	await death_sound.finished
-	queue_free()
-
-	
+	hide()
+	# Adding a timer so health bar has time to reach 0 before game over screen is shown
+	await get_tree().create_timer(0.3).timeout
+	get_tree().call_group("game_over", "show_game_over" )
