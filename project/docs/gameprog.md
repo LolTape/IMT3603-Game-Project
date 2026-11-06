@@ -26,3 +26,6 @@ Insert big yap session
 ### How you controlled process and communication systems during development
 
 ### Use of version control systems (ticket tracking, branching, version control)
+
+Branching: Our main is a stable version that we sometimes push development into. Development branch is where we have actively merged our work into when finished. From development we made branches from issues and closed the branch after merging into development / finishing the issue.
+
