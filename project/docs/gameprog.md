@@ -33,3 +33,12 @@ We had meetings every monday at 14:00 where we discussed our progress on the tas
  Previously during our meetings when we shared progress we also shared our screens to show what we have accomplished. Discord let us do it in 30 fps+ and and downgrade to show clearer text if needed. Teams however was 1-3 fps which made it very hard to show the work that we had done such as animation and gameplay features live. We also noticed teams had worse noise supression which made or team more prone to mute, and only unmute to talk. This made it a more consious decision to talk, instead of letting the discussions flow more naturally. Teams was also slower to load and some team members used linux, which u couldn't install teams on which made the meetings usually starting more late than if on discord. Our choice to keep using discord for other communication came from our experience with teams chatting being nonintuitive, with each channel on teams having it's own file location making it messy to find files, that we found teams notifications more intrusive and that the majority still used discord more actively. It proved it more worth to relay the information being shared on discord, rather than moving platform completely as it was more effecient for us than dealing with the problems teams came with. Towards the end of the semester we all got access to discord again.
 
 ### Use of version control systems (ticket tracking, branching, version control)
+
+#### Ticket tracking
+We've used Github's own "Projects" to make an Issue Board. The Issue Board contains five sections: Backlog (issues that we want to complete in our game), Ready to worked on, In progress, In review, Done.
+
+#### Branching
+Our main is a stable version that we sometimes push development into. Development branch is where we have actively merged our work into when finished. From development we made branches from issues and closed the issue-branch after merging into development / finishing the issue. For the merge to be accepted someone else has to review the pull request by viewing the new code and also running it on their own machine to ensure it works.
+
+#### Version control
+We've used semantic commits so that it's easy for us to understand what others have done. This has been helpful while reviewing pull requests.
