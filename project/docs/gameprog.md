@@ -1,11 +1,11 @@
 # Biking Valhala
 ## Student names
-Christian Henriksen <chrhenr@stud.ntnu.no>
-Christian Dammen <chrdamm@stud.ntnu.no>
-Andreas Castro Messel <andrecme@stud.ntnu.no>
-Ida Celine Løvås <idaclo@stud.ntnu.no>
-Lucas Jan Kloos <lucasjk@stud.ntnu.no>
-Ife Oyetoyan <ifeoluao@stud.ntnu.no>
+- Christian Henriksen <chrhenr@stud.ntnu.no>
+- Christian Dammen <chrdamm@stud.ntnu.no>
+- Andreas Castro Messel <andrecme@stud.ntnu.no>
+- Ida Celine Løvås <idaclo@stud.ntnu.no>
+- Lucas Jan Kloos <lucasjk@stud.ntnu.no>
+- Ife Oyetoyan <ifeoluao@stud.ntnu.no>
 
 ## Repository
 [Github IMT3603-Game-Project](https://github.com/LolTape/IMT3603-Game-Project)
