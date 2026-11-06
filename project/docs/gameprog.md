@@ -38,7 +38,7 @@ We had meetings every monday at 14:00 where we discussed our progress on the tas
 We've used Github's own "Projects" to make an Issue Board. The Issue Board contains five sections: Backlog (issues that we want to complete in our game), Ready to worked on, In progress, In review, Done.
 
 #### Branching
-Our main is a stable version that we sometimes push development into. Development branch is where we have actively merged our work into when finished. From development we made branches from issues and closed the issue-branch after merging into development / finishing the issue. For the merge to be accepted someone else has to review the pull request by viewing the new code and also running it on their own machine to ensure it works.
+Our main is a stable version that we sometimes push development into. Development branch is where we have actively merged our work into when finished. Branching from development we've done two different ways. First way was making branches from issues and closed the issue-branch after merging into development / finishing the issue. The second way was creating a branch and name it after a theme, for example "enemy-wolf", and then whenever an issue has been completed through that branch, we've written "closes issue #x" in commit messages. For the merge to be accepted someone else has to review the pull request by viewing the new code and also running it on their own machine to ensure it works.
 
 #### Version control
 We've used semantic commits so that it's easy for us to understand what others have done. This has been helpful while reviewing pull requests.
