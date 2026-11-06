@@ -29,4 +29,4 @@ Insert big yap session
 
 Ticket tracking: We've used Github's own "Projects" to make an Issue Board. The Issue Board contains five sections: Backlog (issues that we want to complete in our game), Ready to worked on, In progress, In review, Done.
 
-Branching: Our main is a stable version that we sometimes push development into. Development branch is where we have actively merged our work into when finished. From development we made branches from issues and closed the issue-branch after merging into development / finishing the issue. 
+Branching: Our main is a stable version that we sometimes push development into. Development branch is where we have actively merged our work into when finished. From development we made branches from issues and closed the issue-branch after merging into development / finishing the issue. For the merge to be accepted someone else has to review the pull request by viewing the new code and also running it on their own machine to ensure it works.
