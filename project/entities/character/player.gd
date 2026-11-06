@@ -28,6 +28,10 @@ extends CharacterBody2D
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
+@onready var hitbox: HitboxComponent = $HitboxComponent
+@onready var attack_sound: AudioStreamPlayer2D = $AttackSound
+
+
 @export var sprite : AnimatedSprite2D
 
 var dash_cd = 0
@@ -41,6 +45,7 @@ func _ready() -> void:
 	health.current_health = max_health
 	health.state = state
 	health.died.connect(_on_died)
+	hitbox.monitoring = false
 
 func jump():
 	if is_on_floor():
@@ -58,14 +63,31 @@ func gravity() -> float:
 	var base_gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
 	if !Input.is_action_pressed("jump"): # if jump is release, fall faster
 		return 2 * base_gravity
-
 	return base_gravity
+
+var is_attacking: bool = false
+
+func attack() -> void:
+	if is_attacking:
+		return
+		
+	is_attacking = true
+	attack_sound.play()
+	hitbox.monitoring = true
+
+	await get_tree().create_timer(0.2).timeout
+
+	hitbox.monitoring = false
+	is_attacking = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	dash_cd = max(dash_cd - delta, 0.0)
 	if input_h_dir != 0:
 		sprite.flip_h = input_h_dir != 1
+	if Input.is_action_just_pressed("Attack 1"):
+		attack()
 
 
 func _physics_process(delta: float):
