@@ -1,7 +1,7 @@
 class_name PowerupComponent
 extends Node
 
-@export var player: CharacterBody2D = get_parent() as CharacterBody2D
+@export var player: Player
 @onready var state : StateComponent = $StateComponent
 
 # Called when the node enters the scene tree for the first time.

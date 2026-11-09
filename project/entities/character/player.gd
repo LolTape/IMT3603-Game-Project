@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var max_health: float = 100.0

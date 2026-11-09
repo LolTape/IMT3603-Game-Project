@@ -1,4 +1,4 @@
-class_name PowerUp
+class_name PowerUpDescription
 extends Resource
 
 @export var name : String
