@@ -390,3 +390,5 @@ pitch_scale = 1.6
 [node name="StateComponent" type="Node" parent="." unique_id=551607102]
 script = ExtResource("12_4g463")
 metadata/_custom_type_script = "uid://btloy5hsb6xpi"
+
+[node name="Powers" type="Node" parent="." unique_id=1267316007]

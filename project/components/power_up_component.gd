@@ -2,11 +2,10 @@ class_name PowerupComponent
 extends Node
 
 @export var player: Player
-@onready var state : StateComponent = $StateComponent
+@onready var state: StateComponent = player.get_node("StateComponent")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	if player:
 		init_power()
 	else:

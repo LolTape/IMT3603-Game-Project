@@ -53,6 +53,7 @@ func dash(dash_dir: Vector2) -> void:
 
 	dash_cd = dash_cooldown
 	velocity += dash_dir * dash_speed
+	Signals.on_dash.emit()
 	
 	
 func gravity() -> float:
