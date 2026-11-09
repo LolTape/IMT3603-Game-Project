@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://djj8p78qjaohh"]
+
+[ext_resource type="Script" uid="uid://biqmsiq1vvwua" path="res://game_over_screen.gd" id="1_lqr8p"]
+[ext_resource type="AudioStream" uid="uid://cfsjv1kdc3cet" path="res://assets/sound/Alpha_wolf_meme.mp3" id="2_0ccdq"]
+[ext_resource type="FontFile" uid="uid://cjc8574gq2vnm" path="res://assets/font/Metamorphous-Regular.ttf" id="7_hu0b6"]
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=1454848845]
+process_mode = 3
+layer = 11
+script = ExtResource("1_lqr8p")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1923710541]
+process_mode = 3
+stream = ExtResource("2_0ccdq")
+
+[node name="Background" type="ColorRect" parent="." unique_id=150006131]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.78431374)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=403241049]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -78.0
+offset_right = 120.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=379589637]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4627451, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7882353)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_hu0b6")
+theme_override_font_sizes/font_size = 30
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer" unique_id=1948421134]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RetryButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1227073024]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("7_hu0b6")
+text = "Try again"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer/Buttons" unique_id=501196305]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("7_hu0b6")
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons" unique_id=1253527057]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("7_hu0b6")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/RetryButton" to="." method="on_retry_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MainMenuButton" to="." method="on_main_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/QuitButton" to="." method="on_quit_button_pressed"]
