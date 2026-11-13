@@ -24,4 +24,4 @@ func _on_area_entered(area):
 	# Tells the hurtbox to apply this hit's damage
 	# to its associated HealthComponent.
 	if area is HurtboxComponent:
-		area.take_hit(attack_damage)
+		area.take_hit(attack_damage, self)

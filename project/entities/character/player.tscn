@@ -355,6 +355,7 @@ dash_i_time = 0.5
 jump_height = 100.0
 jump_time_to_peak = 0.6
 jump_time_to_descent = 0.6
+knockback_multiplier = 400.0
 sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1922631236]

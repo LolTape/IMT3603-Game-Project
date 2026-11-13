@@ -24,6 +24,8 @@ extends CharacterBody2D
 @export var jump_time_to_peak : float
 @export var jump_time_to_descent : float
 
+@export var knockback_strength : float
+
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
@@ -41,6 +43,7 @@ func _ready() -> void:
 	health.current_health = max_health
 	health.state = state
 	health.died.connect(_on_died)
+	$HurtboxComponent.apply_knockback.connect(_knockback)
 
 func jump():
 	if is_on_floor():
@@ -117,3 +120,6 @@ func _on_died() -> void:
 	# Adding a timer so health bar has time to reach 0 before game over screen is shown
 	await get_tree().create_timer(0.3).timeout
 	get_tree().call_group("game_over", "show_game_over" )
+
+func _knockback(strength: float, direction: Vector2) -> void:
+	velocity += strength * knockback_strength * direction.normalized()

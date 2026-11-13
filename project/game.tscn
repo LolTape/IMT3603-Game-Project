@@ -199,8 +199,8 @@ texture = ExtResource("5_hve3p")
 [node name="player" parent="." unique_id=262826605 instance=ExtResource("1_80nbo")]
 position = Vector2(32, -100)
 slide_on_ceiling = false
-max_health = 20.0
 speed = 220.0
+knockback_strength = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1274321321]
 script = ExtResource("7_vef74")
