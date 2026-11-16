@@ -28,6 +28,15 @@ extends CharacterBody2D
 @onready var jump_gravity : float = ((2.0 * jump_height) / pow(jump_time_to_peak, 2.0)) * 1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
+@onready var hitbox1: HitboxComponent = $HitboxComponent1
+@onready var hitbox2: HitboxComponent = $HitboxComponent2
+@onready var attack_sound1: AudioStreamPlayer2D = $AttackSound1
+@onready var attack_sound2: AudioStreamPlayer2D = $AttackSound2
+
+@export var lunge_speed: float = 800.0
+@export var lunge_duration: float = 0.25
+
+
 @export var sprite : AnimatedSprite2D
 
 var dash_cd = 0
@@ -41,6 +50,16 @@ func _ready() -> void:
 	health.current_health = max_health
 	health.state = state
 	health.died.connect(_on_died)
+	hitbox1.monitoring = false
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Attack 1"):
+		attack1()
+	if Input.is_action_just_pressed("Attack 2"):
+		attack2()
 
 func jump():
 	if is_on_floor():
@@ -58,14 +77,52 @@ func gravity() -> float:
 	var base_gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
 	if !Input.is_action_pressed("jump"): # if jump is release, fall faster
 		return 2 * base_gravity
-
 	return base_gravity
+
+var is_attacking: bool = false
+
+func attack1() -> void:
+	if is_attacking:
+		return
+
+	is_attacking = true
+	attack_sound1.play()
+	hitbox1.monitoring = true
+
+	await get_tree().create_timer(0.2).timeout
+
+	hitbox1.monitoring = false
+	is_attacking = false
+
+
+func attack2() -> void:
+	if is_attacking:
+		return
+
+	is_attacking = true
+	attack_sound2.play()
+	hitbox2.monitoring = true
+
+	var direction = 1.0
+
+	if $Sprite2D.flip_h:
+		direction = -1.0
+
+	velocity.x = direction * lunge_speed
+
+	await get_tree().create_timer(lunge_duration).timeout
+
+	hitbox2.monitoring = false
+	is_attacking = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	dash_cd = max(dash_cd - delta, 0.0)
 	if input_h_dir != 0:
 		sprite.flip_h = input_h_dir != 1
+	if Input.is_action_just_pressed("Attack 1"):
+		attack()
 
 
 func _physics_process(delta: float):
