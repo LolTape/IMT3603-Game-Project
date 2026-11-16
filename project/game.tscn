@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bga85syodlrt2" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 2.png" id="4_vef74"]
 [ext_resource type="Texture2D" uid="uid://eavuqjy13m7f" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://ctqng0wvj0iny" path="res://assets/tilesets/tileset_grass.png" id="7_j5wjh"]
-[ext_resource type="AudioStream" uid="uid://nwlbkxfoymv3" path="res://assets/sound/Sword_sound.mp3" id="7_vef74"]
+[ext_resource type="AudioStream" uid="uid://b8bpna6lgh2en" path="res://assets/sound/Sword_sound1.mp3" id="7_vef74"]
+[ext_resource type="AudioStream" uid="uid://nwlbkxfoymv3" path="res://assets/sound/Sword_sound2.mp3" id="8_hve3p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
 distance = -3.0
@@ -205,8 +206,11 @@ jump_time_to_descent = 0.6
 position = Vector2(-10, 8)
 zoom = Vector2(4, 4)
 
-[node name="AttackSound" type="AudioStreamPlayer2D" parent="player" unique_id=1206258651]
+[node name="AttackSound1" type="AudioStreamPlayer2D" parent="player" unique_id=1206258651]
 stream = ExtResource("7_vef74")
+
+[node name="AttackSound2" type="AudioStreamPlayer2D" parent="player" unique_id=589893631]
+stream = ExtResource("8_hve3p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1391495661]
 
