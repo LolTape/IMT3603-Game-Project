@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://eavuqjy13m7f" path="res://assets/backgrounds/Normal BG/GandalfHardcore Background layers_layer 1.png" id="4_08mmt"]
 [ext_resource type="PackedScene" uid="uid://ba0gop8bb2388" path="res://basicPlatform.tscn" id="5_5ot28"]
 [ext_resource type="Texture2D" uid="uid://ctqng0wvj0iny" path="res://assets/tilesets/tileset_grass.png" id="6_aerfg"]
-[ext_resource type="PackedScene" uid="uid://ci7t6dj8htjot" path="res://entities/enemies/Wolf.tscn" id="7_nmsli"]
+[ext_resource type="PackedScene" uid="uid://ci7t6dj8htjot" path="res://entities/enemies/Bird.tscn" id="7_nmsli"]
+[ext_resource type="Texture2D" uid="uid://cpnoy4p10pm7c" path="res://assets/sprites/door.png" id="9_3sk1a"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gkdic"]
 distance = -3.0
@@ -142,6 +143,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_eow3j")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hve3p"]
+size = Vector2(13, 19)
 
 [node name="Level1" type="Node2D" unique_id=1867159924]
 script = ExtResource("1_l53as")
@@ -235,4 +237,10 @@ position = Vector2(329, -202)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1908048654]
+position = Vector2(1.5, 2.5)
 shape = SubResource("RectangleShape2D_hve3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=44723802]
+position = Vector2(0.9999924, 6.000004)
+scale = Vector2(0.039791677, 0.03166664)
+texture = ExtResource("9_3sk1a")
