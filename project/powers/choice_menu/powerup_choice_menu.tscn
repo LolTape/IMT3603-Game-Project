@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cs0f2nighwafy"]
+
+[ext_resource type="Script" uid="uid://mek7a6riyp86" path="res://powers/choice_menu/powerup_choice_menu.gd" id="1_8srs6"]
+[ext_resource type="Script" uid="uid://cnsa6gi0cfrf4" path="res://powers/resources/powerup_description.gd" id="2_fwyvn"]
+[ext_resource type="Resource" uid="uid://bewdcsvoeuvia" path="res://powers/resources/powerup_description/invincibility_dash.tres" id="3_j8a0n"]
+
+[node name="ChoiceMenu" type="CanvasLayer" unique_id=1180377324]
+script = ExtResource("1_8srs6")
+test_options = Array[ExtResource("2_fwyvn")]([ExtResource("3_j8a0n"), ExtResource("3_j8a0n"), ExtResource("3_j8a0n")])
+
+[node name="Row" type="HBoxContainer" parent="." unique_id=809164692]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -100.0
+offset_right = 304.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Option1" type="Button" parent="Row" unique_id=1073911390]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Option2" type="Button" parent="Row" unique_id=735745676]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Option3" type="Button" parent="Row" unique_id=1530494768]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2

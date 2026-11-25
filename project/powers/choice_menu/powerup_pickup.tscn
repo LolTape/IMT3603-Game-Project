@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ba16wjxmrm152"]
+
+[ext_resource type="Script" uid="uid://bncdwwnt1slg5" path="res://powers/choice_menu/powerup_pickup.gd" id="1_q5jao"]
+[ext_resource type="PackedScene" uid="uid://cs0f2nighwafy" path="res://powers/choice_menu/powerup_choice_menu.tscn" id="2_syjqy"]
+
+[node name="PowerupPickup" type="Area2D" unique_id=849957083]
+script = ExtResource("1_q5jao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=721479201]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=726489095]
+
+[node name="ChoiceMenu" parent="." unique_id=1180377324 instance=ExtResource("2_syjqy")]

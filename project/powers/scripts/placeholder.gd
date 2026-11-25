@@ -1,0 +1,3 @@
+extends PowerupComponent
+
+# does nothing

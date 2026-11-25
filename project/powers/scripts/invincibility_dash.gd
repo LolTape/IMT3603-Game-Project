@@ -10,3 +10,4 @@ func _exit_tree() -> void:
 
 func _on_dash() -> void:
 	state.set_state(StateComponent.State.IFRAMES, player.dash_i_time)
+	print("DASHING! ", state.get_state())

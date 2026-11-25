@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bq7o4rpaf2vyi" path="res://assets/sprites/animation/characterAnimation/playerJumpingWithBasicSword.png" id="6_gcpck"]
 [ext_resource type="Texture2D" uid="uid://cddhmxkxm8ufg" path="res://assets/sprites/animation/characterAnimation/playerWalkingBasicSword.png" id="8_0xsky"]
 [ext_resource type="Script" uid="uid://btloy5hsb6xpi" path="res://components/state_component.gd" id="12_4g463"]
+[ext_resource type="Script" uid="uid://30uqepvbd8ib" path="res://components/power_up_component.gd" id="13_0xsky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7vl7"]
 atlas = ExtResource("2_bmyq4")
@@ -391,4 +392,8 @@ pitch_scale = 1.6
 script = ExtResource("12_4g463")
 metadata/_custom_type_script = "uid://btloy5hsb6xpi"
 
-[node name="Powers" type="Node" parent="." unique_id=1267316007]
+[node name="PowerupComponent" type="Node" parent="." unique_id=1024564090]
+script = ExtResource("13_0xsky")
+metadata/_custom_type_script = "uid://30uqepvbd8ib"
+
+[node name="Powers" type="Node" parent="PowerupComponent" unique_id=1267316007]

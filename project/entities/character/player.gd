@@ -31,6 +31,18 @@ extends CharacterBody2D
 
 @export var sprite : AnimatedSprite2D
 
+
+@onready var powers: Node = $PowerupComponent/Powers
+@export var test_powerup: PowerUp
+
+func equip(powerup: PowerUp) -> void:
+	var instance := powerup.powerupScene.instantiate()
+	powers.add_child(instance)
+
+func _test_powerup() -> void:
+	print("Equipping test powerup: ", test_powerup.name)
+	equip(test_powerup)
+
 var dash_cd = 0
 ## input horizontal direction
 var input_h_dir : float 
@@ -42,6 +54,8 @@ func _ready() -> void:
 	health.current_health = max_health
 	health.state = state
 	health.died.connect(_on_died)
+	if test_powerup:
+		_test_powerup()
 
 func jump():
 	if is_on_floor():
