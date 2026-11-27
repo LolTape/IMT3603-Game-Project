@@ -29,7 +29,7 @@ extends CharacterBody2D
 # Gets the deathsound that will be called later
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
-@onready var wolf_static: Sprite2D = $Sprite2D
+@onready var wolf_animation: AnimatedSprite2D = $AnimatedSprite2D
 
 var gravity: float
 
@@ -78,13 +78,13 @@ func _swapDirection() -> void:
 
 	if facingDirection == left:
 		facingDirection = right
-		wolf_static.flip_h = false
+		wolf_animation.flip_h = false
 		velocity.x = speed * facingDirection
 		
 		
 	else:
 		facingDirection = left
-		wolf_static.flip_h = true
+		wolf_animation.flip_h = true
 		velocity.x = speed * facingDirection
 		
 
@@ -92,10 +92,12 @@ func _swapDirection() -> void:
 
 
 func _wolf_bite_attack(fD: int):
-	attacking = true 
+	attacking = true
 	velocity.x = 0
+	wolf_animation.play("wolfIdle")
 	await get_tree().create_timer(beforeJump).timeout
 	if not is_inside_tree(): return
+	wolf_animation.play("wolfAttack") 
 	velocity.x = (speed * fD) * 4
 	velocity.y = -gravity * JumpTimeToPeak
 	while is_on_floor():
@@ -111,6 +113,7 @@ func _wolf_bite_attack(fD: int):
 	if not is_inside_tree(): return
 	biteHitBox.monitoring = false
 	attacking = false
+	wolf_animation.play("wolfWalking")
 	
 
 	
@@ -128,6 +131,11 @@ func _physics_process(delta: float) -> void:
 	if attacking:
 		move_and_slide()
 		return
+	
+	if velocity.x == 0:
+		wolf_animation.play("wolfIdle")
+	else:
+		wolf_animation.play("wolfWalking")
 
 
 	if (vision.in_vision(player, facingDirection) and not aggroed):
